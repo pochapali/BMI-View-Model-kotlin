@@ -11,6 +11,7 @@ import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
@@ -49,7 +50,7 @@ fun Bmi() {
 
     Column() {
         Text(
-            text="Body mass index ",
+            text= stringResource(R.string.body_mass_index),
             fontSize = 24.sp,
             color = MaterialTheme.colors.primary,
             textAlign = TextAlign.Center,
@@ -59,19 +60,19 @@ fun Bmi() {
         )
         OutlinedTextField(
             value = heightInput,
-            onValueChange = {heightInput=it},
+            onValueChange = {heightInput=it.replace(',','.')},
             label={Text(text="Height")},
             singleLine = true,
             keyboardOptions = KeyboardOptions(keyboardType=KeyboardType.Number   )
         )
         OutlinedTextField(
             value = weightInput,
-            onValueChange = {weightInput=it},
+            onValueChange = {weightInput=it.replace(',','.')},
             label={Text(text="Weight")},
             singleLine = true,
             keyboardOptions = KeyboardOptions(keyboardType=KeyboardType.Number   )
         )
-        Text(text = "Body mass index is "+bmi)
+        Text(text = stringResource(R.string.result ,String.format("%.2f",bmi).replace(',','.')) )
     }
 }
 

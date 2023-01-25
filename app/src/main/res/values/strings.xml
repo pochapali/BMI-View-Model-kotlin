@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">My Application</string>
+    <string name="body_mass_index">Body mass index </string>
+    <string name="result">Body mass index is %s</string>
 </resources>
